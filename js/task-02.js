@@ -9,6 +9,7 @@ const ingredients = [
 
 // отримуємо доступ до нашого 'ul' в розмітці
 const ingredientsEl = document.querySelector("#ingredients");
+const product = [];
 
 // перебираємо масив з назвами інгридієнтів і для кожного додажємо клас та контент
 ingredients.forEach((ingredient) => {
@@ -16,7 +17,8 @@ ingredients.forEach((ingredient) => {
 
   ingredientEl.textContent = ingredient;
   ingredientEl.classList.add("item");
+  product.push(ingredientEl);
+});
 
   // добавляємо створену різмітку до DOM
-  ingredientsEl.appendChild(ingredientEl);
-});
+ingredientsEl.append(...product);
