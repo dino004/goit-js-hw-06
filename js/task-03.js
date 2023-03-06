@@ -13,17 +13,36 @@ const images = [
   },
 ];
 
-const refs = {
-  ul: document.querySelector(".gallery"),
-};
+const galleryListRef = document.querySelector(".gallery");
+
 const galleryArrEl = [];
+//__________________________________________________________
 
-for (let i = 0; i < images.length; i++) {
-  const galleryElement = `<li><img src='${images[i].url}' alt='${images[i].alt}'/></li>`;
-  galleryArrEl.push(galleryElement);
+// for (let i = 0; i < images.length; i++) {
+//   const galleryElement = `<li><img src='${images[i].url}' alt='${images[i].alt}'/></li>`;
+//   galleryArrEl.push(galleryElement);
 
-  refs.ul.style.display = "flex";
-  refs.ul.style.flexDirection = "column";
-}
+//   galleryListRef.style.display = "flex";
+//   galleryListRef.style.flexDirection = "column";
+// }
 
-refs.ul.insertAdjacentHTML("beforeend", galleryArrEl.join(""));
+// galleryListRef.insertAdjacentHTML("beforeend", galleryArrEl.join(""));
+//__________________________________________________________
+
+// const markup = images
+//   .map(({ url, alt }) => `<li><img src='${url}' alt='${alt}' width='500px'/></li>`)
+//   .join("");
+//__________________________________________________________
+
+const markup = images.reduce(
+  (acc, { url, alt }) =>
+    acc + `<li><img src='${url}' alt='${alt}' width='500px'/></li>`,
+  ""
+);
+galleryListRef.style.display = "flex";
+galleryListRef.style.flexDirection = "column";
+galleryListRef.style.listStyle = "none";
+
+//__________________________________________________________
+
+galleryListRef.insertAdjacentHTML("beforeend", markup);
