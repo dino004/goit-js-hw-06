@@ -12,7 +12,8 @@ const ingredientsEl = document.querySelector("#ingredients");
 const product = [];
 
 // перебираємо масив з назвами інгридієнтів і для кожного додажємо клас та контент
-ingredients.forEach((ingredient) => {
+
+ingredients.map(ingredient => {
   const ingredientEl = document.createElement("li");
 
   ingredientEl.textContent = ingredient;
@@ -20,5 +21,18 @@ ingredients.forEach((ingredient) => {
   product.push(ingredientEl);
 });
 
-  // добавляємо створену різмітку до DOM
+// добавляємо створену різмітку до DOM
 ingredientsEl.append(...product);
+
+
+
+// ingredients.forEach((ingredient) => {
+//   const ingredientEl = document.createElement("li");
+
+//   ingredientEl.textContent = ingredient;
+//   ingredientEl.classList.add("item");
+//   product.push(ingredientEl);
+// });
+
+//   // добавляємо створену різмітку до DOM
+// ingredientsEl.append(...product);
