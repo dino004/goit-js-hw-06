@@ -9,30 +9,16 @@ const ingredients = [
 
 // отримуємо доступ до нашого 'ul' в розмітці
 const ingredientsEl = document.querySelector("#ingredients");
-const product = [];
 
 // перебираємо масив з назвами інгридієнтів і для кожного додажємо клас та контент
+const products = ingredients.map(ingredient => {
+  const product = document.createElement("li");
 
-ingredients.map(ingredient => {
-  const ingredientEl = document.createElement("li");
+  product.textContent = ingredient;
+  product.classList.add("item");
 
-  ingredientEl.textContent = ingredient;
-  ingredientEl.classList.add("item");
-  product.push(ingredientEl);
+  return product;
 });
 
 // добавляємо створену різмітку до DOM
-ingredientsEl.append(...product);
-
-
-
-// ingredients.forEach((ingredient) => {
-//   const ingredientEl = document.createElement("li");
-
-//   ingredientEl.textContent = ingredient;
-//   ingredientEl.classList.add("item");
-//   product.push(ingredientEl);
-// });
-
-//   // добавляємо створену різмітку до DOM
-// ingredientsEl.append(...product);
+ingredientsEl.append(...products);
